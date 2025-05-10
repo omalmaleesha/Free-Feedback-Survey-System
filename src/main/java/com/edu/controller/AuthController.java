@@ -1,9 +1,9 @@
 package com.edu.controller;
 
-import com.feedbacksurvey.dto.UserDto;
-import com.feedbacksurvey.entity.User;
-import com.feedbacksurvey.security.JwtUtil;
-import com.feedbacksurvey.service.UserService;
+import com.edu.dto.UserDto;
+import com.edu.entity.User;
+import com.edu.security.JwtUtil;
+import com.edu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
