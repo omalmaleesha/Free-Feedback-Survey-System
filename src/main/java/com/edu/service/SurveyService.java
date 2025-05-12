@@ -24,7 +24,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-public class SurveyService {
+public class SurveyService01 {
 
     @Autowired
     private SurveyRepository surveyRepository;

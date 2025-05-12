@@ -21,6 +21,21 @@ public class SurveyController {
     @Autowired
     private SurveyService surveyService;
 
+    @Autowired
+    private SurveyService surveyService;
+
+    @PostMapping
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<Survey> createSurvey(@RequestBody SurveyDto surveyDto) {
+        return ResponseEntity.ok(surveyService.createSurvey(surveyDto));
+    }
+
+    @PutMapping("/{id}")
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<Survey> updateSurvey(@PathVariable UUID id, @RequestBody SurveyDto surveyDto) {
+        return ResponseEntity.ok(surveyService.updateSurvey(id, surveyDto));
+    }
+
     @PostMapping
     public ResponseEntity<SurveyDto> createSurvey(@RequestBody SurveyDto surveyDto) {
         return ResponseEntity.ok(surveyService.createSurvey(surveyDto));
