@@ -1,25 +1,29 @@
 package com.edu.entity;
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-import java.util.List;
 import java.util.UUID;
-
 
 @Entity
 @Getter
 @Setter
-public class Survey {
+public class SurveyCollaborator {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
-    private String title;
-    private String description;
-    private UUID publicUuid;
-}
+    @ManyToOne
+    @JoinColumn(name = "survey_id")
+    private Survey survey;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    private String role; // OWNER, EDITOR, VIEWER
+}
