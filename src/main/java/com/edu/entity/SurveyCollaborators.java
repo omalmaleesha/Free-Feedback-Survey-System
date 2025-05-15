@@ -1,5 +1,6 @@
 package com.edu.entity;
 
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
-public class SurveyCollaborator {
+public class SurveyCollaborators {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
@@ -24,8 +25,5 @@ public class SurveyCollaborator {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Enumerated(EnumType.STRING)
-    private CollaboratorRole role;
+    private String role; // OWNER, EDITOR, VIEWER
 }
-
-
